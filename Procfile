@@ -1,1 +1,2 @@
-web: node server.js && node sync.js
+web: node server.js
+worker: git push --mirror "https://$BAE_USERNAME:$BAE_PASSWORD@$BAE_GIT"
