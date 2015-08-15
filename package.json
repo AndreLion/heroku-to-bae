@@ -18,6 +18,5 @@
   },
   "homepage": "https://github.com/AndreLion/heroku-to-bae",
   "dependencies": {
-    "shelljs": "^0.5.3"
   }
 }
