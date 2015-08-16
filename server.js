@@ -1,8 +1,11 @@
-var http = require('http');
+var http = require('http'),
+    fileSystem = require('fs'),
+    path = require('path');
 var port = process.env.PORT || 18080;
 http.createServer(function(req, res) {
+    var filePath = path.join(__dirname, '/tmp/log.txt');
+    var stat = fileSystem.statSync(filePath);
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<h1>Node.js</h1>');
-    res.write('<p>username:'+process.env.BAE_USERNAME+'</p>');
-    res.end('<p>Hello World From Heroku to BAE for 5th time</p>');
+    var readStream = fileSystem.createReadStream(filePath);
+    readStream.pipe(res);
 }).listen(port);
